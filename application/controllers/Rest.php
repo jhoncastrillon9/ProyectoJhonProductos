@@ -21,4 +21,25 @@ class Rest extends CI_Controller {
 		echo json_encode($registros);
 	}
 
+	public function productos_post($param="")
+	{
+		//$registros = $this->Productos_model->listar();
+
+		//echo json_encode($registros);
+	}
+
+		public function productos_put($param="")
+	{
+		//$registros = $this->Productos_model->listar();
+
+		//echo json_encode($registros);
+	}
+
+		public function productos_delete($param="")
+	{
+		//$registros = $this->Productos_model->listar();
+
+		//echo json_encode($registros);
+	}
+
 }
