@@ -21,13 +21,21 @@ class Rest extends CI_Controller {
 		echo json_encode($registros);
 	}
 
-	public function productos_post($param="")
+	public function productos_post()
 	{
 		$registros = $this->Login_model->validar_usuario();
 
 		if	(count($registros)>0){
 			//operacion de insercion
-			$mensaje="Acceso permitido";
+			
+			$respuesta = $this->Productos_model->agregar();
+			
+			if($respuesta){
+				$mensaje="Referencia Cargada";
+			}else{
+				$mensaje="Referecia no se puede cargar";
+			}
+
 		}else{
 			$mensaje="El usuario no esta autenticado";
 		}
@@ -37,18 +45,35 @@ class Rest extends CI_Controller {
 		echo json_encode($mensaje);
 	}
 
-		public function productos_put($param="")
+		public function productos_put()
 	{
 		//$registros = $this->Productos_model->listar();
 
 		//echo json_encode($registros);
 	}
 
-		public function productos_delete($param="")
+		public function productos_delete()
 	{
-		//$registros = $this->Productos_model->listar();
+		$registros = $this->Login_model->validar_usuario();
 
-		//echo json_encode($registros);
+		if	(count($registros)>0){
+			//operacion de insercion
+			
+			$respuesta = $this->Productos_model->eliminar();
+			
+			if($respuesta){
+				$mensaje="Referencia Elinada";
+			}else{
+				$mensaje="Referecia no se puede Eliminar";
+			}
+
+		}else{
+			$mensaje="El usuario no esta autenticado";
+		}
+
+		$vector=array("mensaje"=>$mensaje);
+
+		echo json_encode($mensaje);
 	}
 
 }
