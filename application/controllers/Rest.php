@@ -10,9 +10,9 @@ class Rest extends CI_Controller {
 	public function __construct() {
 		parent:: __construct();
 		$this->load->Model('Productos_model');
+		$this->load->Model('Login_model');
 
 	}
-
 
 	public function productos_get($param="")
 	{
@@ -23,9 +23,18 @@ class Rest extends CI_Controller {
 
 	public function productos_post($param="")
 	{
-		//$registros = $this->Productos_model->listar();
+		$registros = $this->Login_model->validar_usuario();
 
-		//echo json_encode($registros);
+		if	(count($registros)>0){
+			//operacion de insercion
+			$mensaje="Acceso permitido";
+		}else{
+			$mensaje="El usuario no esta autenticado";
+		}
+
+		$vector=array("mensaje"=>$mensaje);
+
+		echo json_encode($mensaje);
 	}
 
 		public function productos_put($param="")

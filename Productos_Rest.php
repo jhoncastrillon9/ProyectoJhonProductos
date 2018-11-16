@@ -8,10 +8,10 @@
 	$correo="";
 	$clave="";
 
-	$post=$array("correo" => $correo, "clave" => $clave);
+	$post=array('correo'=> $correo, 'clave' => $clave);
 
 	//rutaparainvocar el API
-	$ruta="http://localhost:81/ProyectoJhonProductos/ProyectoJhonProductos/index.php/rest/productos_get";
+	$ruta="http://localhost:81/ProyectoJhonProductos/index.php/rest/productos_post";
 
 	//metodo curl
 	$curl = curl_init($ruta);
@@ -35,12 +35,12 @@
 	}
 	else{
 		echo "<h1>Resultado de la operacion de insercion de datos</h1>";
-		print_r(json_decode($resultado,true))
+		print_r(json_decode($resultado,true));
 		//recorrer resultado
 
 		}
 
-	curl_close($0.);
+	curl_close($curl);
 
  ?>
 

@@ -3,6 +3,7 @@
 //existen dos metodos 
 $ruta="http://localhost:81/ProyectoJhonProductos/ProyectoJhonProductos/index.php/rest/productos_get";
 
+
 //metodo curl
 $curl = curl_init($ruta);
 //pasar parametros de conexion
